@@ -168,40 +168,40 @@ public class Practica2DI extends javax.swing.JFrame {
 
     private void Calculos() {
         int cogerValor;
-        
+
         switch (jLabel4.getText()) {
             case "PIEDRA":
-                if(jLabel5.getText().equals("TIJERA")){                  
-                    cogerValor=Integer.parseInt(jLabel8.getText());  
+                if (jLabel5.getText().equals("TIJERA")) {
+                    cogerValor = Integer.parseInt(jLabel8.getText());
                     cogerValor++;
                     jLabel8.setText(Integer.toString(cogerValor));
-                }else if(jLabel5.getText().equals("PAPEL")){
-                    cogerValor=Integer.parseInt(jLabel9.getText());  
+                } else if (jLabel5.getText().equals("PAPEL")) {
+                    cogerValor = Integer.parseInt(jLabel9.getText());
                     cogerValor++;
                     jLabel9.setText(Integer.toString(cogerValor));
-            }
+                }
                 break;
             case "PAPEL":
-                if(jLabel5.getText().equals("PIEDRA")){                  
-                    cogerValor=Integer.parseInt(jLabel8.getText());  
+                if (jLabel5.getText().equals("PIEDRA")) {
+                    cogerValor = Integer.parseInt(jLabel8.getText());
                     cogerValor++;
                     jLabel8.setText(Integer.toString(cogerValor));
-                }else if(jLabel5.getText().equals("TIJERA")){
-                    cogerValor=Integer.parseInt(jLabel9.getText());  
+                } else if (jLabel5.getText().equals("TIJERA")) {
+                    cogerValor = Integer.parseInt(jLabel9.getText());
                     cogerValor++;
                     jLabel9.setText(Integer.toString(cogerValor));
-            }
+                }
                 break;
             case "TIJERA":
-                if(jLabel5.getText().equals("PAPEL")){                  
-                    cogerValor=Integer.parseInt(jLabel8.getText());  
+                if (jLabel5.getText().equals("PAPEL")) {
+                    cogerValor = Integer.parseInt(jLabel8.getText());
                     cogerValor++;
                     jLabel8.setText(Integer.toString(cogerValor));
-                }else if(jLabel5.getText().equals("PIEDRA")){
-                    cogerValor=Integer.parseInt(jLabel9.getText());  
+                } else if (jLabel5.getText().equals("PIEDRA")) {
+                    cogerValor = Integer.parseInt(jLabel9.getText());
                     cogerValor++;
                     jLabel9.setText(Integer.toString(cogerValor));
-            }
+                }
                 break;
         }
     }
@@ -212,7 +212,6 @@ public class Practica2DI extends javax.swing.JFrame {
         int num = rand.nextInt(3) + 1;
 
         String resultado = "";
-        
 
         switch (num) {
             case 1:
