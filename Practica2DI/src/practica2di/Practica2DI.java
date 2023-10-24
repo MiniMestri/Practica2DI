@@ -4,6 +4,8 @@
  */
 package practica2di;
 
+import java.util.Random;
+
 /**
  *
  * @author fonsi
@@ -35,18 +37,33 @@ public class Practica2DI extends javax.swing.JFrame {
         jLabel1.setText("PIEDRA | PAPEL | TIJERA");
         jLabel2.setText("            TU");
         jLabel3.setText("     MAQUINA");
-        jLabel4.setText("RESULTADO TU");
-        jLabel5.setText("RESULTADO MAQUINA");
-        jLabel6.setText("CONTADOR TU");
-        jLabel7.setText("CONTADOR MAQUINA");
+        jLabel4.setFont(new java.awt.Font("Segoe Print", 0, 20));
+        jLabel5.setFont(new java.awt.Font("Segoe Print", 0, 20));
+        jLabel6.setText("MARCADOR TU");
+        jLabel7.setText("MARCADOR MAQUINA");
         jLabel8.setFont(new java.awt.Font("Segoe Print", 0, 40));
         jLabel8.setText("0");
         jLabel9.setFont(new java.awt.Font("Segoe Print", 0, 40));
         jLabel9.setText("0");
 
         jButton1.setText("PIEDRA");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jButton2.setText("PAPEL");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jButton3.setText("TIJERA");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,7 +77,7 @@ public class Practica2DI extends javax.swing.JFrame {
                                         .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addGap(40, 40, 40)
+                                                .addGap(60, 60, 60)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(layout.createSequentialGroup()
                                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,9 +94,9 @@ public class Practica2DI extends javax.swing.JFrame {
                                                                                                 .addComponent(jLabel7))
                                                                                         .addGroup(layout.createSequentialGroup()
                                                                                                 .addGap(115, 115, 115)
-                                                                                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                 .addGap(90, 90, 90)
-                                                                                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                                                 .addGap(50, 50, 50))
                                                                         .addGroup(layout.createSequentialGroup()
                                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -121,7 +138,7 @@ public class Practica2DI extends javax.swing.JFrame {
                                 .addContainerGap(95, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50,javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -129,6 +146,86 @@ public class Practica2DI extends javax.swing.JFrame {
                                 .addGap(24, 24, 24))
         );
         pack();
+    }
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        jLabel4.setText("PIEDRA");
+        jLabel5.setText(random());
+        Calculos();
+    }
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        jLabel4.setText("PAPEL");
+        jLabel5.setText(random());
+        Calculos();
+    }
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+        jLabel4.setText("TIJERA");
+        jLabel5.setText(random());
+        Calculos();
+    }
+
+    private void Calculos() {
+        int cogerValor;
+        
+        switch (jLabel4.getText()) {
+            case "PIEDRA":
+                if(jLabel5.getText().equals("TIJERA")){                  
+                    cogerValor=Integer.parseInt(jLabel8.getText());  
+                    cogerValor++;
+                    jLabel8.setText(Integer.toString(cogerValor));
+                }else if(jLabel5.getText().equals("PAPEL")){
+                    cogerValor=Integer.parseInt(jLabel9.getText());  
+                    cogerValor++;
+                    jLabel9.setText(Integer.toString(cogerValor));
+            }
+                break;
+            case "PAPEL":
+                if(jLabel5.getText().equals("PIEDRA")){                  
+                    cogerValor=Integer.parseInt(jLabel8.getText());  
+                    cogerValor++;
+                    jLabel8.setText(Integer.toString(cogerValor));
+                }else if(jLabel5.getText().equals("TIJERA")){
+                    cogerValor=Integer.parseInt(jLabel9.getText());  
+                    cogerValor++;
+                    jLabel9.setText(Integer.toString(cogerValor));
+            }
+                break;
+            case "TIJERA":
+                if(jLabel5.getText().equals("PAPEL")){                  
+                    cogerValor=Integer.parseInt(jLabel8.getText());  
+                    cogerValor++;
+                    jLabel8.setText(Integer.toString(cogerValor));
+                }else if(jLabel5.getText().equals("PIEDRA")){
+                    cogerValor=Integer.parseInt(jLabel9.getText());  
+                    cogerValor++;
+                    jLabel9.setText(Integer.toString(cogerValor));
+            }
+                break;
+        }
+    }
+
+    private static String random() {
+        Random rand = new Random();
+
+        int num = rand.nextInt(3) + 1;
+
+        String resultado = "";
+        
+
+        switch (num) {
+            case 1:
+                resultado = "PIEDRA";
+                break;
+            case 2:
+                resultado = "PAPEL";
+                break;
+            case 3:
+                resultado = "TIJERA";
+                break;
+        }
+        return resultado;
     }
 
     public static void main(String[] args) {
