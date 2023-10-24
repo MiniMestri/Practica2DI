@@ -148,24 +148,49 @@ public class Practica2DI extends javax.swing.JFrame {
         pack();
     }
 
+    /**
+     * Evento del boton1 "PIEDRA" para ejecutar los métodos posteriormente
+     * desarrollados, donde cada vez que se pulsa el botón se modifica los
+     * jLabel4,5,8,9 con sus respectivos valores
+     *
+     * @param evt
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         jLabel4.setText("PIEDRA");
         jLabel5.setText(random());
         Calculos();
     }
 
+    /**
+     * Evento del boton2 "PAPEL" para ejecutar los métodos posteriormente
+     * desarrollados, donde cada vez que se pulsa el botón se modifica los
+     * jLabel4,5,8,9 con sus respectivos valores
+     *
+     * @param evt
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         jLabel4.setText("PAPEL");
         jLabel5.setText(random());
         Calculos();
     }
 
+    /**
+     * Evento del boton3 "TIJERA" para ejecutar los métodos posteriormente
+     * desarrollados, donde cada vez que se pulsa el botón se modifica los
+     * jLabel4,5,8,9 con sus respectivos valores
+     *
+     * @param evt
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         jLabel4.setText("TIJERA");
         jLabel5.setText(random());
         Calculos();
     }
 
+    /**
+     * Método desarrollado para decidir el ganador y sumar 1 al contador de
+     * puntos
+     */
     private void Calculos() {
         int cogerValor;
 
@@ -206,6 +231,12 @@ public class Practica2DI extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Método que genera un número aleatorio (1-3) y decide con un switch que
+     * mensaje sacar
+     *
+     * @return Un string con el resultado ganador
+     */
     private static String random() {
         Random rand = new Random();
 
